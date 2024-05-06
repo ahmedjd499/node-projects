@@ -1,16 +1,20 @@
 {
   "name": "lvl1",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve" :"nodemon app"
+    "start": "node ./bin/www",
+    "watch" : "nodemon -- ext *"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "connect-livereload": "^0.6.1",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "livereload": "^0.9.3",
     "mongoose": "^8.3.3",
     "nodemon": "^3.1.0"
   }
