@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         input , button {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -14,9 +14,12 @@
     <h1>
         hello this is a coursing training node js + express js
     </h1>
-    <input type="text" placeholder="name">
-    <br>
-    <br>
-    <button>send to db</button>
+    <form action="/test" method="post">
+        <input type="text" name="username" placeholder="name" required>
+        <br>
+        <br>
+        <button type="submit">send to db</button>
+
+    </form>
 </body>
 </html>
