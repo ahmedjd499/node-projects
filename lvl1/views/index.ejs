@@ -6,7 +6,7 @@
       rel="stylesheet"
       href="./bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
     />
-    <link rel="shortcut icon" href="./img/ali.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/me.jfif" type="image/x-icon">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -24,6 +24,10 @@
     <link href="./css/sidebars.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/myStyle.css" />
     <link rel="stylesheet" href="./css/dark_light.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
   </head>
   <body>
  <!-- dark theme light theme -->
@@ -40,7 +44,8 @@
             <!-- ----------------------------------navbar ------------------------>
               <%- include('./components/navbar.ejs') %>
        
-            <table 
+            <table
+            id="myTable" 
           style="width: 99%"
           class="text-center mx-auto table mt-5 table-striped table-bordered"
         >
@@ -56,13 +61,15 @@
             </tr>
           </thead>
           <tbody>
+            <% let i=1 %>
+            <% users.forEach((user)=> { %>
             <tr>
-              <th scope="row">1</th>
-              <td>Ali Hassan	</td>
-              <td>Male	</td>
-              <td>Egypt</td>
-              <td>30</td>
-              <td>1 days ago              </td>
+              <th scope="row"><%= i %></th>
+              <td><%= user.username %></td>
+              <td><%= user.gender %>	</td>
+              <td><%= user.country %></td>
+              <td><%= user.age %></td>
+              <td><%= user.modifiedAt %>            </td>
               <td>
                 <a
                   data-bs-toggle="tooltip"
@@ -92,245 +99,10 @@
                 </button>
               </td>
             </tr>
-      
-            <tr>
-              <th scope="row">2</th>
-              <td>Layla Sayed	</td>
-       
-              <td>Female</td>
-              <td>Saudi Arabia	</td>
-              <td>15</td>
-              <td>2 days ago              </td>
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/view.html"
-                  ><i class="bi bi-eye"></i
-                ></a>
+            <%
+          i=i+1 
+          }) %>
 
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/edit.html"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-      
-      
-            <tr>
-              <th scope="row">3</th>
-              <td>Zeyad Mohsen	</td>
-              <td>Male</td>
-              <td>Morocco</td>
-              <td>11</td>
-              <td>3 days ago
-              </td>
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/view.html"
-                  ><i class="bi bi-eye"></i
-                ></a>
-
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/edit.html"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-      
-      
-
-            <tr>
-              <th scope="row">4</th>
-              <td>Nour Ahmed	</td>
-              <td>Female</td>
-              <td>Ukraine</td>
-              <td>10</td>
-              <td>2 days ago
-              </td>
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/view.html"
-                  ><i class="bi bi-eye"></i
-                ></a>
-
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/edit.html"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-      
-      
-            <tr>
-              <th scope="row">5</th>
-              <td>Fatma Ali	</td>
-              <td>Female</td>
-              <td>France</td>
-              <td>35</td>
-              <td>2 days ago
-              </td>
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/view.html"
-                  ><i class="bi bi-eye"></i
-                ></a>
-
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/edit.html"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-      
-      
-
-
-            <tr>
-              <th scope="row">6</th>
-              <td>Ali Hassan	</td>
-              <td>Male	</td>
-              <td>Egypt</td>
-              <td>30</td>
-              <td>1 days ago              </td>
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/view.html"
-                  ><i class="bi bi-eye"></i
-                ></a>
-
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/edit.html"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-      
-
-
-            <tr>
-              <th scope="row">7</th>
-              <td>Layla Sayed	</td>
-       
-              <td>Female</td>
-              <td>Saudi Arabia	</td>
-              <td>15</td>
-              <td>2 days ago              </td>
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/view.html"
-                  ><i class="bi bi-eye"></i
-                ></a>
-
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/edit.html"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-      
-      
-      
           </tbody>
         </table>
       </section>
@@ -340,5 +112,10 @@
     <script src="./js/sidebars.js"></script>
 
     <script src="./js/main.js"></script>
+    <script>
+      let table = new DataTable('#myTable', {
+    // options
+});
+    </script>
   </body>
 </html>

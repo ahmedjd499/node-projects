@@ -26,7 +26,11 @@ liveReloadServer.server.once("connection", () => {
 });
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Home page" });
+  User.find().then((result)=>{
+   // console.log(result);
+    res.render("index", { title: "Home page" ,users : result});
+
+  }).catch((err)=>{console.log(err);});
 });
 
 app.get("/user/add.html", (req, res) => {
@@ -42,6 +46,17 @@ app.get("/user/view.html", (req, res) => {
 app.get("/user/search.html", (req, res) => {
   res.render("user/search");
 });
+
+
+
+app.post("/user/add", (req, res) => {
+  const user =new User(req.body)
+  user.save().then(()=>{
+    console.log('user saved successfully');
+    console.log(user);
+res.redirect('/user/add.html')  }).catch((err)=>{console.log(err);})
+});
+
 
 mongoose
   .connect(

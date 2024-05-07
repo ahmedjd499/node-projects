@@ -4,7 +4,7 @@
 <head>
   <script src="../js/color-modes.js"></script>
   <link rel="stylesheet" href="../bootstrap-icons-1.10.5/font/bootstrap-icons.min.css" />
-  <link rel="shortcut icon" href="../img/ali.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../img/me.jfif" type="image/x-icon">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,51 +35,141 @@
           <!-- ----------------------------------navbar ------------------------>
           <%- include('../components/navbar.ejs') %>
 
-            <form class="mx-0 row gx-3 gy-4 mt-3">
+            <form class="mx-0 row gx-3 gy-4 mt-3" method="post" action="/user/add">
               <div class="col-md-6">
-                <label for="inputfirstName4" class="form-label">First Name:</label>
-                <input placeholder="Ali..." type="text" class="form-control" id="inputfirstName4" />
+                <label for="firstname" class="form-label">First Name:</label>
+                <input  placeholder="Ali..." type="text" class="form-control" name="firstname"  required/>
               </div>
               <div class="col-md-6">
-                <label for="inputlastName4" class="form-label">Last Name:</label>
-                <input placeholder="Hassan..." type="text" class="form-control" id="inputlastName4" />
+                <label for="lastname" class="form-label">Last Name:</label>
+                <input placeholder="Hassan..." type="text" class="form-control" name="lastname"  required/>
               </div>
 
               <div class="col-md-6">
-                <label for="inputemail4" class="form-label">Email:</label>
-                <input placeholder="ali@gmail.com" type="email" class="form-control" id="inputemail4" />
+                <label for="email" class="form-label">Email:</label>
+                <input placeholder="ali@gmail.com" type="email" class="form-control" name="email" required />
               </div>
               <div class="col-md-6">
-                <label for="inputtele4" class="form-label">Telephone:</label>
-                <input placeholder="011987899" type="number" class="form-control" id="inputtele4" />
+                <label for="telephone" class="form-label">Telephone:</label>
+                <input placeholder="011987899" type="number" class="form-control" name="telephone"  required/>
               </div>
 
               <div>
                 <div class="col-md-6">
-                  <label for="inputage4" class="form-label">Age:</label>
-                  <input placeholder="Your Age: ..." type="number" class="form-control" id="inputage4" />
+                  <label for="age" class="form-label">Age:</label>
+                  <input placeholder="Your Age: ..." type="number" class="form-control" name="age"  required/>
                 </div>
               </div>
 
               <div>
                 <div class="col-md-6">
-                  <label for="inputCountry" class="form-label">Country:</label>
-                  <select id="inputCountry" class="form-select">
+                  <label for="country" class="form-label">Country:</label>
+                  <select name="country" class="form-select" required>
                     <option selected hidden disabled>Choose here ...</option>
 
-                    <option>Morocco</option>
-                    <option>Egypt</option>
+                    <option value="Algeria">🇩🇿 Algeria</option>
+                    <option value="Tunisia">🇹🇳 Tunisia</option>
+                    <option value="Libya">🇱🇾 Libya</option>
+                    <option value="Sudan">🇸🇩 Sudan</option>
+                    <option value="Saudi Arabia">🇸🇦 Saudi Arabia</option>
+                    <option value="Yemen">🇾🇪 Yemen</option>
+                    <option value="Syria">🇸🇾 Syria</option>
+                    <option value="Iraq">🇮🇶 Iraq</option>
+                    <option value="Jordan">🇯🇴 Jordan</option>
+                    <option value="Lebanon">🇱🇧 Lebanon</option>
+                    <option value="Palestine">🇵🇸 Palestine</option>
+                    <option value="United Arab Emirates">🇦🇪 United Arab Emirates</option>
+                    <option value="Oman">🇴🇲 Oman</option>
+                    <option value="Qatar">🇶🇦 Qatar</option>
+                    <option value="Kuwait">🇰🇼 Kuwait</option>
+                    <option value="Bahrain">🇧🇭 Bahrain</option>
+                    <option value="Turkey">🇹🇷 Turkey</option>
+                    <option value="Iran">🇮🇷 Iran</option>
+                    <option value="Afghanistan">🇦🇫 Afghanistan</option>
+                    <option value="Pakistan">🇵🇰 Pakistan</option>
+                    <option value="Turkmenistan">🇹🇲 Turkmenistan</option>
+                    <option value="Uzbekistan">🇺🇿 Uzbekistan</option>
+                    <option value="Tajikistan">🇹🇯 Tajikistan</option>
+                    <option value="Kyrgyzstan">🇰🇬 Kyrgyzstan</option>
+                    <option value="Kazakhstan">🇰🇿 Kazakhstan</option>
+                    <option value="Georgia">🇬🇪 Georgia</option>
+                    <option value="Armenia">🇦🇲 Armenia</option>
+                    <option value="Azerbaijan">🇦🇿 Azerbaijan</option>
+                    <option value="Israel">🇮🇱 Israel</option>
+                    <option value="Cyprus">🇨🇾 Cyprus</option>
+                    <option value="Turkey">🇹🇷 Turkey</option>
+                    <option value="Greece">🇬🇷 Greece</option>
+                    <option value="Bulgaria">🇧🇬 Bulgaria</option>
+                    <option value="Romania">🇷🇴 Romania</option>
+                    <option value="Moldova">🇲🇩 Moldova</option>
+                    <option value="Ukraine">🇺🇦 Ukraine</option>
+                    <option value="Belarus">🇧🇾 Belarus</option>
+                    <option value="Russia">🇷🇺 Russia</option>
+                    <option value="Finland">🇫🇮 Finland</option>
+                    <option value="Sweden">🇸🇪 Sweden</option>
+                    <option value="Norway">🇳🇴 Norway</option>
+                    <option value="Denmark">🇩🇰 Denmark</option>
+                    <option value="Poland">🇵🇱 Poland</option>
+                    <option value="Germany">🇩🇪 Germany</option>
+                    <option value="Netherlands">🇳🇱 Netherlands</option>
+                    <option value="Belgium">🇧🇪 Belgium</option>
+                    <option value="Luxembourg">🇱🇺 Luxembourg</option>
+                    <option value="France">🇫🇷 France</option>
+                    <option value="Switzerland">🇨🇭 Switzerland</option>
+                    <option value="Liechtenstein">🇱🇮 Liechtenstein</option>
+                    <option value="Austria">🇦🇹 Austria</option>
+                    <option value="Czech Republic">🇨🇿 Czech Republic</option>
+                    <option value="Slovakia">🇸🇰 Slovakia</option>
+                    <option value="Hungary">🇭🇺 Hungary</option>
+                    <option value="Slovenia">🇸🇮 Slovenia</option>
+                    <option value="Croatia">🇭🇷 Croatia</option>
+                    <option value="Bosnia and Herzegovina">🇧🇦 Bosnia and Herzegovina</option>
+                    <option value="Serbia">🇷🇸 Serbia</option>
+                    <option value="Montenegro">🇲🇪 Montenegro</option>
+                    <option value="Albania">🇦🇱 Albania</option>
+                    <option value="North Macedonia">🇲🇰 North Macedonia</option>
+                    <option value="Kosovo">🇽🇰 Kosovo</option>
+                    <option value="Greece">🇬🇷 Greece</option>
+                    <option value="Cyprus">🇨🇾 Cyprus</option>
+                    <option value="Malta">🇲🇹 Malta</option>
+                    <option value="Iceland">🇮🇸 Iceland</option>
+                    <option value="Greenland">🇬🇱 Greenland</option>
+                    <option value="Faroe Islands">🇫🇴 Faroe Islands</option>
+                    <option value="United Kingdom">🇬🇧 United Kingdom</option>
+                    <option value="Ireland">🇮🇪 Ireland</option>
+                    <option value="Portugal">🇵🇹 Portugal</option>
+                    <option value="Spain">🇪🇸 Spain</option>
+                    <option value="Andorra">🇦🇩 Andorra</option>
+                    <option value="Gibraltar">🇬🇮 Gibraltar</option>
+                    <option value="France">🇫🇷 France</option>
+                    <option value="Monaco">🇲🇨 Monaco</option>
+                    <option value="Italy">🇮🇹 Italy</option>
+                    <option value="San Marino">🇸🇲 San Marino</option>
+                    <option value="Vatican City">🇻🇦 Vatican City</option>
+                    <option value="Malta">🇲🇹 Malta</option>
+                    <option value="Sicily">🇮🇹 Sicily</option>
+                    <option value="Sardinia">🇮🇹 Sardinia</option>
+                    <option value="Corsica">🇫🇷 Corsica</option>
+                    <option value="Montenegro">🇲🇪 Montenegro</option>
+                    <option value="Bosnia and Herzegovina">🇧🇦 Bosnia and Herzegovina</option>
+                    <option value="Croatia">🇭🇷 Croatia</option>
+                    <option value="Slovenia">🇸🇮 Slovenia</option>
+                    <option value="Hungary">🇭🇺 Hungary</option>
+                    <option value="Slovakia">🇸🇰 Slovakia</option>
+                    <option value="Czech Republic">🇨🇿 Czech Republic</option>
+                    <option value="Austria">
+                    
                   </select>
                 </div>
               </div>
 
               <div>
                 <div class="col-md-6">
-                  <label for="inputGender" class="form-label">Gender:</label>
-                  <select id="inputGender" class="form-select">
+                  <label for="gender" class="form-label">Gender:</label>
+                  <select name="gender" class="form-select" required>
                     <option selected hidden disabled>Choose here ...</option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                   </select>
                 </div>
               </div>
