@@ -30,8 +30,16 @@ app.get("/", (req, res) => {
    // console.log(result);
     res.render("index", { title: "Home page" ,users : result});
 
-  }).catch((err)=>{console.log(err);});
+  }).catch((err)=>{
+    res.redirect("/somethingwhentwrong");
+    console.log(err);});
 });
+
+app.get("/somethingwhentwrong", (req, res) => {
+ 
+    res.render("404");
+}
+  )
 
 app.get("/user/add.html", (req, res) => {
   res.render("user/add");
@@ -39,8 +47,14 @@ app.get("/user/add.html", (req, res) => {
 app.get("/user/edit.html", (req, res) => {
   res.render("user/edit");
 });
-app.get("/user/view.html", (req, res) => {
-  res.render("user/view");
+app.get("/user/:id", (req, res) => {
+ console.log(req.params.id); 
+  User.findById(req.params.id).then((result)=>{
+console.log(result);
+    res.render("user/view",{user : result});
+  }).catch((err)=>{
+    res.redirect("/somethingwhentwrong");
+    console.log(err);})
 });
 
 app.get("/user/search.html", (req, res) => {
@@ -56,8 +70,6 @@ app.post("/user/add", (req, res) => {
     console.log(user);
 res.redirect('/user/add.html')  }).catch((err)=>{console.log(err);})
 });
-
-
 mongoose
   .connect(
     "mongodb+srv://umanlink61:iec2LHD1LbBHJpko@cluster0.3c4rryz.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0"
