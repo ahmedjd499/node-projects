@@ -73,10 +73,9 @@ app.get("/user/search.html", (req, res) => {
 
 
 app.post("/user/add", (req, res) => {
-  const user =new User(req.body)
-  user.save().then(()=>{
+User.create(req.body).then(()=>{
     console.log('user saved successfully');
-    console.log(user);
+    
 res.redirect('/user/add.html')  }).catch((err)=>{console.log(err);})
 });
 
