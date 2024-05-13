@@ -92,7 +92,7 @@
 
             <tr>
               <th scope="row">Age</th>
-              <td><%= user.age %>age</td>
+              <td><%= user.age %></td>
             </tr>
 
             <tr>
@@ -102,12 +102,12 @@
 
             <tr>
               <th scope="row">Created on</th>
-              <td><%= user.createdAt %></td>
+              <td><%= moment(user.createdAt).fromNow() %></td>
             </tr>
 
             <tr>
               <th scope="row">Last Update</th>
-              <td><%= user.modifiedAt %></td>
+              <td><%= moment(user.updatedAt).fromNow() %></td>
             </tr>
           </tbody>
         </table>

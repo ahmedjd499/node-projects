@@ -32,10 +32,10 @@ const userSchema =new Schema({
         required: true,
         enum: ['male', 'female'] // Define the possible values for the gender field
       },
-      createdAt : { type: Date, default: Date.now},
-      modifiedAt : { type: Date, default: Date.now}
+   //   createdAt : { type: Date, default: Date.now},
+   //   modifiedAt : { type: Date, default: Date.now}
 
-    });
+    },{timestamps:true});
  const User=mongoose.model('User',userSchema);
 
  module.exports=User ;

@@ -3,7 +3,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/user");
-
+const moment=require("moment")
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -28,7 +28,7 @@ liveReloadServer.server.once("connection", () => {
 app.get("/", (req, res) => {
   User.find().then((result)=>{
    // console.log(result);
-    res.render("index", { title: "Home page" ,users : result});
+    res.render("index", { title: "Home page" ,users : result,moment:moment});
 
   }).catch((err)=>{
     res.redirect("/somethingwhentwrong");
@@ -51,7 +51,7 @@ app.get("/user/:id", (req, res) => {
  console.log(req.params.id); 
   User.findById(req.params.id).then((result)=>{
 console.log(result);
-    res.render("user/view",{user : result});
+    res.render("user/view",{user : result,moment:moment});
   }).catch((err)=>{
     res.redirect("/somethingwhentwrong");
     console.log(err);})
@@ -70,6 +70,10 @@ app.post("/user/add", (req, res) => {
     console.log(user);
 res.redirect('/user/add.html')  }).catch((err)=>{console.log(err);})
 });
+
+
+
+
 mongoose
   .connect(
     "mongodb+srv://umanlink61:iec2LHD1LbBHJpko@cluster0.3c4rryz.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0"
