@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/user");
 const moment=require("moment")
+var methodOverride = require('method-override')
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +19,7 @@ liveReloadServer.watch(path.join(__dirname, "public"));
 
 const connectLiveReload = require("connect-livereload");
 app.use(connectLiveReload());
+app.use(methodOverride('_method'))
 
 liveReloadServer.server.once("connection", () => {
   setTimeout(() => {
@@ -44,9 +46,16 @@ app.get("/somethingwhentwrong", (req, res) => {
 app.get("/user/add.html", (req, res) => {
   res.render("user/add");
 });
-app.get("/user/edit.html", (req, res) => {
-  res.render("user/edit");
+app.get("/user/edit/:id", (req, res) => {
+  console.log(req.params.id); 
+  User.findById(req.params.id).then((result)=>{
+console.log(result);
+    res.render("user/edit",{user : result});
+  }).catch((err)=>{
+    res.redirect("/somethingwhentwrong");
+    console.log(err);})
 });
+
 app.get("/user/:id", (req, res) => {
  console.log(req.params.id); 
   User.findById(req.params.id).then((result)=>{
@@ -73,7 +82,15 @@ res.redirect('/user/add.html')  }).catch((err)=>{console.log(err);})
 
 
 
-
+app.delete("/user/delete/:id", (req, res) => {
+  console.log(req.params.id); 
+  User.findByIdAndDelete(req.params.id).then((result)=>{
+    console.log(result);
+    res.redirect("/");
+  }).catch((err)=>{
+    res.redirect("/somethingwhentwrong");
+    console.log(err);})
+})
 mongoose
   .connect(
     "mongodb+srv://umanlink61:iec2LHD1LbBHJpko@cluster0.3c4rryz.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0"
