@@ -57,77 +57,151 @@
 
 
 
-        <form class="mx-0 row gx-3 gy-4 mt-2">
+        <form class="mx-0 row gx-3 gy-4 mt-2" method="post" action="/user/editOne/<%= user.id %>?_method=PUT">
           <div class="col-md-6">
-            <label for="inputfirstName4" class="form-label">First Name:</label>
+            <label for="firstname" class="form-label">First Name:</label>
             <input
-              placeholder="Ali..."
+              value="<%= user.firstname %>"
               type="text"
               class="form-control"
-              id="inputfirstName4"
+            name="firstname"
             />
           </div>
           <div class="col-md-6">
-            <label for="inputlastName4" class="form-label">Last Name:</label>
+            <label for="lastname" class="form-label">Last Name:</label>
             <input
-              placeholder="Hassan..."
+            value="<%= user.lastname %>"
               type="text"
               class="form-control"
-              id="inputlastName4"
+            name="lastname"
             />
           </div>
 
           <div class="col-md-6">
-            <label for="inputemail4" class="form-label">Email:</label>
+            <label for="email" class="form-label">Email:</label>
             <input
-              placeholder="ali@gmail.com"
-              type="email"
+            value="<%= user.email %>"   
+                       type="email"
               class="form-control"
-              id="inputemail4"
+            name="email"
             />
           </div>
           <div class="col-md-6">
-            <label for="inputtele4" class="form-label">Telephone:</label>
+            <label for="telephone" class="form-label">Telephone:</label>
             <input
-              placeholder="011987899"
-              type="number"
+            value="<%= user.telephone %>"              type="number"
               class="form-control"
-              id="inputtele4"
+            name="telephone"
             />
           </div>
 
           <div>
             <div class="col-md-6">
-              <label for="inputage4" class="form-label">Age:</label>
+              <label for="age" class="form-label">Age:</label>
               <input
-                placeholder="Your Age: ..."
+              value="<%= user.age %>"
                 type="number"
                 class="form-control"
-                id="inputage4"
+              name="age"
               />
             </div>
           </div>
 
           <div>
             <div class="col-md-6">
-              <label for="inputCountry" class="form-label">Country:</label>
-              <select id="inputCountry" class="form-select">
-                <option selected hidden disabled>Choose here ...</option>
-
-                <option>Morocco</option>
-                <option>Egypt</option>
-              </select>
+              <label for="country" class="form-label">Country:</label>
+              <select name="country" class="form-select" required>
+                <option hidden disabled selected>Choose here ...</option>
+                <option value="Algeria" <%= user.country === 'Algeria' ? 'selected' : '' %>>🇩🇿 Algeria</option>
+                <option value="Tunisia" <%= user.country === 'Tunisia' ? 'selected' : '' %>>🇹🇳 Tunisia</option>
+                <option value="Libya" <%= user.country === 'Libya' ? 'selected' : '' %>>🇱🇾 Libya</option>
+                <option value="Sudan" <%= user.country === 'Sudan' ? 'selected' : '' %>>🇸🇩 Sudan</option>
+                <option value="Saudi Arabia" <%= user.country === 'Saudi Arabia' ? 'selected' : '' %>>🇸🇦 Saudi Arabia</option>
+                <option value="Yemen" <%= user.country === 'Yemen' ? 'selected' : '' %>>🇾🇪 Yemen</option>
+                <option value="Syria" <%= user.country === 'Syria' ? 'selected' : '' %>>🇸🇾 Syria</option>
+                <option value="Iraq" <%= user.country === 'Iraq' ? 'selected' : '' %>>🇮🇶 Iraq</option>
+                <option value="Jordan" <%= user.country === 'Jordan' ? 'selected' : '' %>>🇯🇴 Jordan</option>
+                <option value="Lebanon" <%= user.country === 'Lebanon' ? 'selected' : '' %>>🇱🇧 Lebanon</option>
+                <option value="Palestine" <%= user.country === 'Palestine' ? 'selected' : '' %>>🇵🇸 Palestine</option>
+                <option value="United Arab Emirates" <%= user.country === 'United Arab Emirates' ? 'selected' : '' %>>🇦🇪 United Arab Emirates</option>
+                <option value="Oman" <%= user.country === 'Oman' ? 'selected' : '' %>>🇴🇲 Oman</option>
+                <option value="Qatar" <%= user.country === 'Qatar' ? 'selected' : '' %>>🇶🇦 Qatar</option>
+                <option value="Kuwait" <%= user.country === 'Kuwait' ? 'selected' : '' %>>🇰🇼 Kuwait</option>
+                <option value="Bahrain" <%= user.country === 'Bahrain' ? 'selected' : '' %>>🇧🇭 Bahrain</option>
+                <option value="Turkey" <%= user.country === 'Turkey' ? 'selected' : '' %>>🇹🇷 Turkey</option>
+                <option value="Iran" <%= user.country === 'Iran' ? 'selected' : '' %>>🇮🇷 Iran</option>
+                <option value="Afghanistan" <%= user.country === 'Afghanistan' ? 'selected' : '' %>>🇦🇫 Afghanistan</option>
+                <option value="Pakistan" <%= user.country === 'Pakistan' ? 'selected' : '' %>>🇵🇰 Pakistan</option>
+                <option value="Turkmenistan" <%= user.country === 'Turkmenistan' ? 'selected' : '' %>>🇹🇲 Turkmenistan</option>
+                <option value="Uzbekistan" <%= user.country === 'Uzbekistan' ? 'selected' : '' %>>🇺🇿 Uzbekistan</option>
+                <option value="Tajikistan" <%= user.country === 'Tajikistan' ? 'selected' : '' %>>🇹🇯 Tajikistan</option>
+                <option value="Kyrgyzstan" <%= user.country === 'Kyrgyzstan' ? 'selected' : '' %>>🇰🇬 Kyrgyzstan</option>
+                <option value="Kazakhstan" <%= user.country === 'Kazakhstan' ? 'selected' : '' %>>🇰🇿 Kazakhstan</option>
+                <option value="Georgia" <%= user.country === 'Georgia' ? 'selected' : '' %>>🇬🇪 Georgia</option>
+                <option value="Armenia" <%= user.country === 'Armenia' ? 'selected' : '' %>>🇦🇲 Armenia</option>
+                <option value="Azerbaijan" <%= user.country === 'Azerbaijan' ? 'selected' : '' %>>🇦🇿 Azerbaijan</option>
+                <option value="Cyprus" <%= user.country === 'Cyprus' ? 'selected' : '' %>>🇨🇾 Cyprus</option>
+                <option value="Greece" <%= user.country === 'Greece' ? 'selected' : '' %>>🇬🇷 Greece</option>
+                <option value="Bulgaria" <%= user.country === 'Bulgaria' ? 'selected' : '' %>>🇧🇬 Bulgaria</option>
+                <option value="Romania" <%= user.country === 'Romania' ? 'selected' : '' %>>🇷🇴 Romania</option>
+                <option value="Moldova" <%= user.country === 'Moldova' ? 'selected' : '' %>>🇲🇩 Moldova</option>
+                <option value="Ukraine" <%= user.country === 'Ukraine' ? 'selected' : '' %>>🇺🇦 Ukraine</option>
+                <option value="Belarus" <%= user.country === 'Belarus' ? 'selected' : '' %>>🇧🇾 Belarus</option>
+                <option value="Russia" <%= user.country === 'Russia' ? 'selected' : '' %>>🇷🇺 Russia</option>
+                <option value="Finland" <%= user.country === 'Finland' ? 'selected' : '' %>>🇫🇮 Finland</option>
+                <option value="Sweden" <%= user.country === 'Sweden' ? 'selected' : '' %>>🇸🇪 Sweden</option>
+                <option value="Norway" <%= user.country === 'Norway' ? 'selected' : '' %>>🇳🇴 Norway</option>
+                <option value="Denmark" <%= user.country === 'Denmark' ? 'selected' : '' %>>🇩🇰 Denmark</option>
+                <option value="Poland" <%= user.country === 'Poland' ? 'selected' : '' %>>🇵🇱 Poland</option>
+                <option value="Germany" <%= user.country === 'Germany' ? 'selected' : '' %>>🇩🇪 Germany</option>
+                <option value="Netherlands" <%= user.country === 'Netherlands' ? 'selected' : '' %>>🇳🇱 Netherlands</option>
+                <option value="Belgium" <%= user.country === 'Belgium' ? 'selected' : '' %>>🇧🇪 Belgium</option>
+                <option value="Luxembourg" <%= user.country === 'Luxembourg' ? 'selected' : '' %>>🇱🇺 Luxembourg</option>
+                <option value="France" <%= user.country === 'France' ? 'selected' : '' %>>🇫🇷 France</option>
+                <option value="Switzerland" <%= user.country === 'Switzerland' ? 'selected' : '' %>>🇨🇭 Switzerland</option>
+                <option value="Liechtenstein" <%= user.country === 'Liechtenstein' ? 'selected' : '' %>>🇱🇮 Liechtenstein</option>
+                <option value="Austria" <%= user.country === 'Austria' ? 'selected' : '' %>>🇦🇹 Austria</option>
+                <option value="Czech Republic" <%= user.country === 'Czech Republic' ? 'selected' : '' %>>🇨🇿 Czech Republic</option>
+                <option value="Slovakia" <%= user.country === 'Slovakia' ? 'selected' : '' %>>🇸🇰 Slovakia</option>
+                <option value="Hungary" <%= user.country === 'Hungary' ? 'selected' : '' %>>🇭🇺 Hungary</option>
+                <option value="Slovenia" <%= user.country === 'Slovenia' ? 'selected' : '' %>>🇸🇮 Slovenia</option>
+                <option value="Croatia" <%= user.country === 'Croatia' ? 'selected' : '' %>>🇭🇷 Croatia</option>
+                <option value="Bosnia and Herzegovina" <%= user.country === 'Bosnia and Herzegovina' ? 'selected' : '' %>>🇧🇦 Bosnia and Herzegovina</option>
+                <option value="Serbia" <%= user.country === 'Serbia' ? 'selected' : '' %>>🇷🇸 Serbia</option>
+                <option value="Montenegro" <%= user.country === 'Montenegro' ? 'selected' : '' %>>🇲🇪 Montenegro</option>
+                <option value="Albania" <%= user.country === 'Albania' ? 'selected' : '' %>>🇦🇱 Albania</option>
+                <option value="North Macedonia" <%= user.country === 'North Macedonia' ? 'selected' : '' %>>🇲🇰 North Macedonia</option>
+                <option value="Kosovo" <%= user.country === 'Kosovo' ? 'selected' : '' %>>🇽🇰 Kosovo</option>
+                <option value="Malta" <%= user.country === 'Malta' ? 'selected' : '' %>>🇲🇹 Malta</option>
+                <option value="Iceland" <%= user.country === 'Iceland' ? 'selected' : '' %>>🇮🇸 Iceland</option>
+                <option value="Greenland" <%= user.country === 'Greenland' ? 'selected' : '' %>>🇬🇱 Greenland</option>
+                <option value="Faroe Islands" <%= user.country === 'Faroe Islands' ? 'selected' : '' %>>🇫🇴 Faroe Islands</option>
+                <option value="United Kingdom" <%= user.country === 'United Kingdom' ? 'selected' : '' %>>🇬🇧 United Kingdom</option>
+                <option value="Ireland" <%= user.country === 'Ireland' ? 'selected' : '' %>>🇮🇪 Ireland</option>
+                <option value="Portugal" <%= user.country === 'Portugal' ? 'selected' : '' %>>🇵🇹 Portugal</option>
+                <option value="Spain" <%= user.country === 'Spain' ? 'selected' : '' %>>🇪🇸 Spain</option>
+                <option value="Andorra" <%= user.country === 'Andorra' ? 'selected' : '' %>>🇦🇩 Andorra</option>
+                <option value="Gibraltar" <%= user.country === 'Gibraltar' ? 'selected' : '' %>>🇬🇮 Gibraltar</option>
+                <option value="Monaco" <%= user.country === 'Monaco' ? 'selected' : '' %>>🇲🇨 Monaco</option>
+                <option value="Italy" <%= user.country === 'Italy' ? 'selected' : '' %>>🇮🇹 Italy</option>
+                <option value="San Marino" <%= user.country === 'San Marino' ? 'selected' : '' %>>🇸🇲 San Marino</option>
+                <option value="Vatican City" <%= user.country === 'Vatican City' ? 'selected' : '' %>>🇻🇦 Vatican City</option>
+                <option value="Sicily" <%= user.country === 'Sicily' ? 'selected' : '' %>>🇮🇹 Sicily</option>
+                <option value="Sardinia" <%= user.country === 'Sardinia' ? 'selected' : '' %>>🇮🇹 Sardinia</option>
+                <option value="Corsica" <%= user.country === 'Corsica' ? 'selected' : '' %>>🇫🇷 Corsica</option>
+            </select>
+            
             </div>
           </div>
 
           <div>
             <div class="col-md-6">
-              <label for="inputGender" class="form-label">Gender:</label>
-              <select id="inputGender" class="form-select">
-                <option selected hidden disabled>Choose here ...</option>
-                <option>Male</option>
-                <option>Female</option>
-              </select>
+              <label for="gender" class="form-label">Gender:</label>
+              <select name="gender" class="form-select">
+                <option hidden disabled>Choose here ...</option>
+                <option <%= user.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                <option <%= user.gender === 'Female' ? 'selected' : '' %>>Female</option>
+            </select>
             </div>
           </div>
 

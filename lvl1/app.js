@@ -91,6 +91,17 @@ app.delete("/user/delete/:id", (req, res) => {
     res.redirect("/somethingwhentwrong");
     console.log(err);})
 })
+
+app.put("/user/editOne/:id", (req, res) => {
+  console.log(req.params.id); 
+  console.log(req.body); 
+  User.findByIdAndUpdate(req.params.id,req.body).then((result)=>{
+   //console.log(result);
+    res.redirect(`/user/edit/${req.params.id}`);
+  }).catch((err)=>{
+    res.redirect("/somethingwhentwrong");
+    console.log(err);})
+})
 mongoose
   .connect(
     "mongodb+srv://umanlink61:iec2LHD1LbBHJpko@cluster0.3c4rryz.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0"
