@@ -6,7 +6,8 @@ const mongoose = require("mongoose");
 var methodOverride = require("method-override");
 const app = express();
 
-const routes =require('./routes/allRoutes')
+const ALLroutes =require('./routes/allRoutes')
+const userRoutes =require('./routes/userRoutes')
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -20,6 +21,7 @@ const liveReloadServer = livereload.createServer();
 liveReloadServer.watch(path.join(__dirname, "public"));
 
 const connectLiveReload = require("connect-livereload");
+const userRouter = require("./routes/userRoutes");
 app.use(connectLiveReload());
 app.use(methodOverride("_method"));
 
@@ -28,7 +30,8 @@ liveReloadServer.server.once("connection", () => {
     liveReloadServer.refresh("/");
   }, 100);
 });
-app.use(routes)
+app.use(ALLroutes)
+app.use(userRoutes)
 
 mongoose
   .connect(
