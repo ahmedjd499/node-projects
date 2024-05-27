@@ -13,7 +13,7 @@ const userRoutes =require('./routes/userRoutes')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-const port = 3000;
+const port = process.env.PORT ||  3001;
 //// auto refresh
 const path = require("path");
 const livereload = require("livereload");
